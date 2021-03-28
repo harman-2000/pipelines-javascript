@@ -19,12 +19,11 @@ steps:
   displayName: 'Run a multi-line script'
   
 - script: npm test
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
+
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
     testRunner: JUnit
     testResultsFiles: '**/TEST-RESULTS.xml'
+
 
